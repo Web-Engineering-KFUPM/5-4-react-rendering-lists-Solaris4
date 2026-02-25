@@ -21,15 +21,15 @@ export default function CourseCard({ course, index, onMutateCourse }) {
   // const hasTasks = course.tasks.length > 0;
   // const allDone = hasTasks && course.tasks.every(t => t.isDone);
 
-  return (
+return (
     <article className="course card">
       <header className="cardHeader">
         <h2>{course.title}</h2>
 
-        {/* TODO (TASK 3): Show “All caught up” badge ONLY when:
-            - course has tasks AND
-            - all tasks are done
-            Use logical && */}
+        {course.tasks.length > 0 &&
+          course.tasks.every((t) => t.isDone) && (
+            <span className="chip good">All caught up</span>
+          )}
       </header>
 
       <section className="tasksSection">
